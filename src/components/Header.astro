@@ -1,0 +1,73 @@
+---
+//import x from "../pages/About.astro"
+console.log("hola world");
+---
+
+<header id="header" class="header">
+    <nav class="nb">
+        <ul class="nbl">
+            <a href="/Prod" class="nait a">Productos</a>
+            <a href="/About" class="nait a">Sobre Ls</a>
+            <a href="/index" class="nal a">
+                <img alt="Logo" src="/1prLogo.png" class="lg" />
+                <span>Ls Cube</span>
+            </a>
+            <a href="Tutorials" class="nait a">Tutoriales</a>
+            <a href="Tourn" class="nait a">Torneos</a>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    /* ? navbar */
+
+    .header {
+        width: 100%;
+        position: absolute;
+    }
+
+    .nb {
+        margin-top: 1%;
+    }
+
+    .nbl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+    }
+
+    .nbl a {
+        color: var(--fc);
+        transition: 110ms ease-out;
+    }
+
+    .lg {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+
+    .ic {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-size: 40px;
+        letter-spacing: -2px;
+    }
+
+    .nait {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .nbl a:hover {
+        transform: scale(1.2);
+    }
+</style>
