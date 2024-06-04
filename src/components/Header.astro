@@ -1,20 +1,24 @@
 ---
 //import x from "../pages/About.astro"
-console.log("hola world");
 ---
 
 <header id="header" class="header">
-    <nav class="nb">
+    <nav class="">
         <ul class="nbl">
-            <a href="/Prod" class="nait a">Productos</a>
-            <a href="/About" class="nait a">Sobre Ls</a>
-            <a href="/index" class="nal a">
+            <a href="/Prod" class="nait a font-normal">Productos</a>
+            <a href="/About" class="nait a font-normal">Sobre Ls</a>
+            <a href="/index" class="nal a font-normal">
                 <img alt="Logo" src="/1prLogo.png" class="lg" />
                 <span>Ls Cube</span>
             </a>
-            <a href="Tutorials" class="nait a">Tutoriales</a>
-            <a href="Tourn" class="nait a">Torneos</a>
+            <a href="Tutorials" class="nait a font-normal">Tutoriales</a>
+            <a href="Tourn" class="nait a font-normal">Torneos</a>
         </ul>
+
+        <!--  <div id="movile">
+            
+        </div>
+        -->
     </nav>
 </header>
 
@@ -26,8 +30,10 @@ console.log("hola world");
         position: absolute;
     }
 
-    .nb {
-        margin-top: 1%;
+    nav {
+        padding-top: 1%;
+       /* display: flex;
+        justify-content: space-around;*/
     }
 
     .nbl {
