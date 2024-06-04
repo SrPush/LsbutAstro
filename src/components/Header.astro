@@ -1,24 +1,57 @@
 ---
-//import x from "../pages/About.astro"
+state = { clicked: false };
+handleClick = () =>{
+    this.setState({cliked: !this.state.clicked{})
+
+}
 ---
 
 <header id="header" class="header">
-    <nav class="">
+    <nav class="flex justify-evenly">
         <ul class="nbl">
             <a href="/Prod" class="nait a font-normal">Productos</a>
             <a href="/About" class="nait a font-normal">Sobre Ls</a>
-            <a href="/index" class="nal a font-normal">
+            <a href="/" class="nal a font-semibold">
                 <img alt="Logo" src="/1prLogo.png" class="lg" />
                 <span>Ls Cube</span>
             </a>
-            <a href="Tutorials" class="nait a font-normal">Tutoriales</a>
-            <a href="Tourn" class="nait a font-normal">Torneos</a>
+            <a href="/Tutorials" class="nait a font-normal">Tutoriales</a>
+            <a href="/Tourn" class="nait a font-normal">Torneos</a>
+            <a href=""></a>
         </ul>
 
-        <!--  <div id="movile">
-            
+        <div id="mobile"
+                onClick=
+                {this.handleClick}>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                viewBox="0 0 24 24"
+                ><g fill="none" stroke="#ffffff"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 12h.009m3.996 0h.008m3.978 0H16"></path><path
+                        stroke-width="1.5"
+                        d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"
+                    ></path></g
+                ></svg
+            >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                viewBox="0 0 12 12"
+                id="bar"
+                class={this.state.clicked}
+                ><path
+                    fill="#ffffff"
+                    d="M2.22 2.22a.75.75 0 0 1 1.06 0L6 4.939L8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6L9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061L3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6L2.22 3.28a.75.75 0 0 1 0-1.06"
+                ></path></svg
+            >
         </div>
-        -->
     </nav>
 </header>
 
@@ -32,7 +65,7 @@
 
     nav {
         padding-top: 1%;
-       /* display: flex;
+        /* display: flex;
         justify-content: space-around;*/
     }
 

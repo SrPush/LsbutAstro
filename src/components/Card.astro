@@ -1,11 +1,17 @@
 ---
-const { cbName, srcImg, price } = Astro.props;
+interface Props {
+    cbName: string;
+    crdImg: string;
+    price: number;
+}
+
+const { cbName, crdImg, price } = Astro.props;
 ---
 
 <div class="crd">
-    <a href="">
+    <a href="/">
         <div class="ig c">
-            <img src={srcImg} alt="cube" />
+            <img src={crdImg} alt="cube" />
         </div>
         <div class="inf">
             <div class="lft font-semibold">
@@ -29,8 +35,9 @@ const { cbName, srcImg, price } = Astro.props;
             <div class="rgt font-semibold">
                 <h4>&dollar;{price}</h4>
                 <label class="switch">
-                    <input type="checkbox" />
+                    <input class="toggle" type="checkbox" />
                     <span class="slider"></span>
+                    <span class="card-side"></span>
                 </label>
             </div>
         </div>
@@ -86,6 +93,39 @@ const { cbName, srcImg, price } = Astro.props;
 </div>
 
 <style>
+    .rating:not(:checked) > input {
+        position: absolute;
+        appearance: none;
+    }
+
+    .rating:not(:checked) > label {
+        float: right;
+        cursor: pointer;
+        font-size: 30px;
+        color: #666;
+    }
+
+    .rating:not(:checked) > label:before {
+        content: "★";
+    }
+
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+        color: #e58e09;
+    }
+
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+        color: #ff9e0b;
+    }
+
+    .rating > input:checked ~ label {
+        color: #ffa723;
+    }
+
     .ig {
         background-color: #4a5989;
         width: 100%;
@@ -111,7 +151,7 @@ const { cbName, srcImg, price } = Astro.props;
     }
 
     .sh-car {
-        border: 1px solid;
+        border: 1px #323232 solid;
         background-color: white;
         width: 60px;
         height: 55px;
@@ -158,11 +198,18 @@ const { cbName, srcImg, price } = Astro.props;
     /* * animaciones */
     .crd:hover {
         opacity: 1;
+        box-shadow: 0 3px #4b4b4b;
+        transform: translateY(-3px);
+    }
+
+    .crd:active {
+        transform: translateY(1.2px);
+        box-shadow: none;
     }
 
     .sh-car:hover {
-        border-color: 2px black;
-        box-shadow: 0 3px black;
+        border-color: 2px #323232 solid;
+        box-shadow: 0 3px #323232;
         transform: translateY(-3px);
         transition: 180ms ease-in-out;
     }
@@ -175,50 +222,65 @@ const { cbName, srcImg, price } = Astro.props;
 
     /* * switch provisional */
 
-    /* The switch - the box around the slider */
     .switch {
-        font-size: 1rem;
+        --input-focus: #2d8cf0;
+        --font-color: #323232;
+        --font-color-sub: #666;
+        --bg-color: #fff;
+        --bg-color-alt: #666;
+        --main-color: #323232;
         position: relative;
-        display: inline-block;
-        width: 4em;
-        height: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 50px;
+        height: 20px;
     }
-    /* Hide default HTML checkbox */
-    .switch input {
+
+    .toggle {
         opacity: 0;
         width: 0;
         height: 0;
     }
 
-    /* The slider */
     .slider {
+        border-radius: 5px;
+        border: 2px solid var(--main-color);
         position: absolute;
         cursor: pointer;
-        inset: 0;
-        background-color: #eee;
-        transition: 0.4s;
-        border-radius: 0.5em;
-        box-shadow: 0 0.2em #dfd9d9;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-colorcolor);
+        transition: 0.3s;
+    }
+
+    .slider:hover {
+        box-shadow: 4px 4px var(--main-color);
     }
 
     .slider:before {
         position: absolute;
         content: "";
-        height: 1.5em;
-        width: 1.4em;
-        border-radius: 0.3em;
-        left: 0.3em;
-        bottom: 0.7em;
-        background-color: lightsalmon;
-        transition: 0.17s;
-        box-shadow: 0 0.4em #bcb4b4;
+        height: 20px;
+        width: 20px;
+        border: 2px solid var(--main-color);
+        border-radius: 5px;
+        left: -2px;
+        bottom: 2px;
+        background-color: var(--bg-color);
+        box-shadow: 0 3px 0 var(--main-color);
+        transition: 0.3s;
     }
-    .slider:hover::before {
-        box-shadow: 0 0.2em #bcb4b4;
-        bottom: 0.5em;
+
+    .toggle:checked + .slider {
+        background-color: var(--input-focus);
     }
-    input:checked + .slider:before {
-        transform: translateX(2em);
-        background: lightgreen;
+
+    .toggle:checked + .slider:before {
+        transform: translateX(30px);
     }
 </style>

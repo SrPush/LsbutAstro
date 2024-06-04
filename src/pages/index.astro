@@ -1,47 +1,118 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import SliderP from "../components/Slider-P.astro";
+import { SliderP } from "../components/SliderP";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
 ---
 
 <Layout title="LsCubeShop.">
-	<Header />
+	<body>
+		<main>
+			<SliderP client:visible />
+		</main>
+		<section class="cb-pop">
+			<h1 class="text-white">Cubos mas Populares</h1>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="128"
+				height="128"
+				viewBox="0 0 8 8"
+				><path
+					fill="#ffffff"
+					d="M0 0v1h1V0zm2 0v1h1V0zm2 0v1h1V0zm2 0v1h1V0zM0 2v1h1V2zm2 0v1h1V2zm2 0v1h1V2zm2 0v1h1V2zM0 4v1h1V4zm2 0v1h1V4zm2 0v1h1V4zm2 0v1h1V4zM0 6v1h1V6zm2 0v1h1V6zm2 0v1h1V6zm2 0v1h1V6z"
+				></path></svg
+			>
 
-	<main>
-		<SliderP />
-	</main>
-	<section class="cb-pop">
-		<div class="ct-crd">
-			<Card cbName="MoYu RS3M 2020" srcImg="/Rs3m20.png" price="60000"/>
-		</div>
-	</section>
-
-	<Footer />
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="128"
+				height="128"
+				viewBox="0 0 24 24"
+				><path
+					fill="#ffffff"
+					d="M3 21h4.675v-4.675H3zm6.675 0h4.65v-4.675h-4.65zm6.65 0H21v-4.675h-4.675zM3 14.325h4.675v-4.65H3zm6.675 0h4.65v-4.65h-4.65zm6.65 0H21v-4.65h-4.675zM3 7.675h4.675V3H3zm6.675 0h4.65V3h-4.65zm6.65 0H21V3h-4.675z"
+				></path></svg
+			>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="128"
+				height="128"
+				viewBox="0 0 24 24"
+				><path
+					fill="#ffffff"
+					d="M3 11V3h8v8zm0 10v-8h8v8zm10-10V3h8v8zm0 10v-8h8v8z"
+				></path></svg
+			>
+			<div class="ct-crd">
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+				<Card
+					cbName="MoYu RS3M 2020"
+					crdImg="/Rs3m20.png"
+					price={60000}
+				/>
+			</div>
+		</section>
+		<footer>
+			<Footer />
+		</footer>
+	</body>
 </Layout>
 
 <style>
 	main {
 		width: 100%;
-		min-height: 100vh;
-		padding-top: 10vh;
+		height: 100vh;
 		background-image: radial-gradient(circle at 50% 5%, #b76e2d, #1f140e);
 		background-repeat: no-repeat;
 		background: cover;
 	}
 
-	.ct-crd {
-		width: 100%;
-		height: 300vh;
+	.cb-pop {
 		background: rgba(43, 31, 17, 0.644);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(10px);
-		padding: 0.5%;
+	}
 
-		border-inline: 2px solid #fffffff1;
-		border-top: 2px solid #fffffff1;
+	.ct-crd {
+		width: 98%;
+		height: fit-content;
+		background-color: transparent;
+		padding: 2% 2% 1% 1%;
+		margin: 2% 1% 0;
+
+		border-inline: 3px solid #fffffff1;
+		border-top: 3px solid #fffffff1;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 0.7%;
 	}
 </style>

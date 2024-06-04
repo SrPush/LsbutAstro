@@ -1,0 +1,43 @@
+---
+interface Props {
+    imgSrc: string;
+    imgId: string;
+    sliId: string;
+    btX: string;
+    aHrf: string;
+}
+
+const { imgId, imgSrc, btX, aHrf, sliId } = Astro.props;
+---
+
+<div class="sld c" id={sliId}>
+    <img
+        src={imgSrc}
+        alt="una imagen muy especial igual que tu"
+        class="img"
+        id={imgId}
+    />
+    <a href={aHrf} class="btn" id={btX}></a>
+</div>
+
+<style>
+    .sld {
+        margin: 0 30px;
+    }
+
+    img {
+        position: relative;
+        height: 370px;
+        width: 240px;
+        filter: opacity(0.8);
+    }
+
+    .btn {
+        position: absolute;
+        width: 240px;
+        height: 370px;
+        transition: 0.7s ease-in;
+
+    }
+
+</style>
